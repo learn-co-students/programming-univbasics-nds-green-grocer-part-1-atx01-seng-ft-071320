@@ -41,6 +41,16 @@ end
 cart = generate_cart
 coupons = generate_coupons
 
+def find_item_by_name_in_collection (name)
+  counter = 0
+  items.each do |item|
+    if item[:item] == name
+      return items[counter]
+    end
+    counter += 1
+  end
+end
+
 puts "Items in cart"
 cart.each do |item|
 	puts "Item: #{item.keys.first}"
