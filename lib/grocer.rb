@@ -1,17 +1,29 @@
-def find_item_by_name_in_collection(name, collection)
-  # Implement me first!
-  #
-  # Consult README for inputs and outputs
-
+def find_item_by_name_in_collection(item, collection)
+  collection.each do |element|
+    if element[:item] == item 
+     return element
+    end
+  end
+  nil
 end
+
 
 def consolidate_cart(cart)
-  # Consult README for inputs and outputs
-  #
-  # REMEMBER: This returns a new Array that represents the cart. Don't merely
-  # change `cart` (i.e. mutate) it. It's easier to return a new thing.
-
-end
-
-
   
+  new_cart = []
+  
+  cart.each do |element|
+    cart[cart.index(element)][:count] = 1
+  end
+  
+  cart.each do |element|
+    if new_cart.include? element
+      new_cart[new_cart.index(element)][:count] += 1 
+    else
+      new_cart << element
+    end
+  end
+  
+  cart = new_cart
+  
+end
